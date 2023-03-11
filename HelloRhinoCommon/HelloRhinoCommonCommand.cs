@@ -55,12 +55,11 @@ namespace HelloRhinoCommon
                 }
                 pt1 = getPointAction.Point();
             }
-
             Line line1 = new Line(pt0, pt1);
             doc.Objects.AddLine(line1);
             doc.Views.Redraw();
             RhinoApp.WriteLine("The {0} command added one line to the document.", EnglishName);
-
+            RhinoApp.WriteLine("The distance between the two points is {0} {1}.", line1.Length, doc.ModelUnitSystem.ToString().ToLower());
             // ---
             return Result.Success;
         }
